@@ -31,27 +31,6 @@ common_passwords: A list of frequently used and easily guessable passwords.
 dictionary_words: A sample list of common dictionary words used to check if a password contains any easily guessable words.
 check_password_strength Function:
 
-Length Score:
-The length of the password is checked, and a score is calculated by dividing the password length by 8. The score is capped at 1.
-Character Diversity Score:
-The function checks if the password contains lowercase letters, uppercase letters, digits, and special characters.
-Each category present in the password contributes to the diversity score, which is then divided by 4 to normalize it.
-Common Password Check:
-The function checks if the password is in the common_passwords list. If not, it gives a score of 1.
-Dictionary Word Check:
-The function checks if any dictionary word from dictionary_words is a substring of the password (case insensitive). If not, it gives a score of 1.
-Entropy Calculation:
-Entropy is a measure of randomness and unpredictability in the password.
-The function determines the pool of characters used in the password (lowercase, uppercase, digits, special characters).
-It calculates entropy using the formula len(password) * math.log2(pool).
-The entropy score is normalized by dividing it by 50 and capped at 1.
-Final Score Calculation:
-The final score is the average of the length score, diversity score, common password score, dictionary word score, and entropy score.
-Feedback Generation:
-Feedback messages are generated based on the weaknesses identified in the password (short length, lack of diversity, common password, presence of dictionary words, low entropy).
-Return Values:
-The function returns the final score and feedback messages.
-evaluate_password Function:
 
 Password Retrieval:
 The function retrieves the password entered by the user in the Tkinter entry widget (password_entry).
